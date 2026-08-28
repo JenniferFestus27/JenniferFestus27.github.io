@@ -7,177 +7,748 @@
     <title>Jennifer Festus | Data Analyst</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            background: #f4f7fb;
-            color: #222;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        header {
-            background: #123a8c;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050816;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 7%;
+            background: rgba(5, 8, 22, 0.95);
+            border-bottom: 1px solid #202747;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
             color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 20px;
-        }
-
-        section {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-        }
-
-        h2 {
-            color: #123a8c;
-        }
-
-        .project {
-            padding: 20px;
-            background: #f4f7fb;
-            border-left: 5px solid #123a8c;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-
-        .skills span {
-            display: inline-block;
-            background: #123a8c;
-            color: white;
-            padding: 10px 15px;
-            margin: 5px;
-            border-radius: 20px;
-        }
-
-        a {
-            color: #123a8c;
             text-decoration: none;
             font-weight: bold;
         }
 
+        nav ul li a:hover {
+            color: #9b6cff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 70px 7%;
+            background:
+                radial-gradient(circle at 80% 35%, #35136e 0%, #050816 35%);
+        }
+
+        .hero-text {
+            max-width: 620px;
+        }
+
+        .hello {
+            color: #9b6cff;
+            font-size: 23px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 30px;
+            color: #9b6cff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #d4d7e5;
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #7c3aed;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #9b5cff;
+        }
+
+        .btn-secondary {
+            border: 1px solid #777;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #9b6cff;
+            color: #9b6cff;
+        }
+
+        /* PROFILE PHOTO */
+        .photo-container {
+            width: 390px;
+            height: 390px;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #8b5cf6, #ffffff, #7c3aed);
+            box-shadow: 0 0 45px rgba(139, 92, 246, 0.7);
+            flex-shrink: 0;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        /* STATS */
+        .stats {
+            display: flex;
+            gap: 45px;
+            margin-top: 40px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 25px;
+            color: #ffffff;
+        }
+
+        .stat span {
+            color: #aeb3c7;
+        }
+
+        /* SKILLS STRIP */
+        .skill-strip {
+            max-width: 1200px;
+            margin: -35px auto 0;
+            padding: 30px;
+            position: relative;
+            background: #10162b;
+            border: 1px solid #252c4a;
+            border-radius: 22px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .skill-box {
+            padding: 10px;
+            border-right: 1px solid #333b5c;
+        }
+
+        .skill-box:last-child {
+            border-right: none;
+        }
+
+        .skill-box h3 {
+            color: white;
+            margin-bottom: 7px;
+        }
+
+        .skill-box p {
+            color: #aeb3c7;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-label {
+            color: #9b6cff;
+            text-align: center;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+        .about-card {
+            max-width: 950px;
+            margin: auto;
+            background: #10162b;
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid #252c4a;
+        }
+
+        .about-card p {
+            color: #c7cada;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill {
+            background: #10162b;
+            border: 1px solid #252c4a;
+            padding: 22px;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .skill:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-3px);
+        }
+
+        /* PROJECTS */
+        .projects {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #10162b;
+            border: 1px solid #252c4a;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-content {
+            padding: 28px;
+        }
+
+        .project-content h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .project-content p {
+            color: #c7cada;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #222b4a;
+            color: #ffffff;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .project-link {
+            color: #a577ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+        /* CONTACT */
+        .contact-card {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            background: #10162b;
+            border: 1px solid #252c4a;
+            padding: 50px 30px;
+            border-radius: 18px;
+        }
+
+        .contact-card p {
+            color: #c7cada;
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #a577ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 30px;
-            background: #123a8c;
-            color: white;
+            background: #03050e;
+            color: #8f95aa;
+        }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .buttons,
+            .stats {
+                justify-content: center;
+            }
+
+            .photo-container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .skill-strip {
+                grid-template-columns: repeat(2, 1fr);
+                margin: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .skill-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-box {
+                border-right: none;
+                border-bottom: 1px solid #333b5c;
+                padding-bottom: 15px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Jennifer Festus</h1>
-    <p>Data Analyst | SQL | Power BI | Excel</p>
-</header>
+    <!-- NAVIGATION -->
+    <nav>
 
-<section>
-    <h2>About Me</h2>
+        <div class="logo">
+            Jennifer <span>Festus</span>
+        </div>
 
-    <p>
-        I am an aspiring Data Analyst passionate about transforming data
-        into meaningful insights that support better business decisions.
-        I enjoy working with SQL, Power BI and Excel to clean, analyze
-        and visualize data.
-    </p>
-</section>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-<section>
-    <h2>Skills</h2>
+    </nav>
 
-    <div class="skills">
-        <span>SQL</span>
-        <span>Power BI</span>
-        <span>Microsoft Excel</span>
-        <span>Data Cleaning</span>
-        <span>Data Visualization</span>
-        <span>Data Analysis</span>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <div class="hello">
+                👋 Hi, I'm
+            </div>
+
+            <h1>
+                Jennifer Festus
+            </h1>
+
+            <h2>
+                Data Analyst | SQL | Power BI | Excel
+            </h2>
+
+            <p>
+                I transform raw data into meaningful insights that
+                support smarter business decisions, improve performance,
+                and create value.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <strong>2+</strong>
+                    <span>Projects</span>
+                </div>
+
+                <div class="stat">
+                    <strong>3+</strong>
+                    <span>Data Tools</span>
+                </div>
+
+                <div class="stat">
+                    <strong>Data</strong>
+                    <span>Driven</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- YOUR PHOTO -->
+        <div class="photo-container">
+
+            <img src="image/my profile.jpg"
+                 alt="Jennifer Festus">
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILL STRIP -->
+    <div class="skill-strip">
+
+        <div class="skill-box">
+            <h3>📊 Data Analysis</h3>
+            <p>Extracting insights from complex data</p>
+        </div>
+
+        <div class="skill-box">
+            <h3>📈 Data Visualization</h3>
+            <p>Creating clear and impactful dashboards</p>
+        </div>
+
+        <div class="skill-box">
+            <h3>🗄️ SQL & Databases</h3>
+            <p>Querying, cleaning and analyzing data</p>
+        </div>
+
+        <div class="skill-box">
+            <h3>🎯 Business Intelligence</h3>
+            <p>Turning data into strategic decisions</p>
+        </div>
+
     </div>
-</section>
 
-<section>
-    <h2>Projects</h2>
 
-    <div class="project">
+    <!-- ABOUT -->
+    <section id="about">
 
-        <h3>Bank Personal Loan Analysis</h3>
+        <div class="section-label">
+            About Me
+        </div>
+
+        <h2 class="section-title">
+            Turning Data Into Insights
+        </h2>
+
+        <div class="about-card">
+
+            <p>
+                Hello! I'm Jennifer Festus, a Data Analyst passionate
+                about transforming raw data into meaningful business
+                insights.
+            </p>
+
+            <p>
+                I enjoy exploring data, identifying patterns, analyzing
+                customer behaviour and creating dashboards that make
+                information easier to understand.
+            </p>
+
+            <p>
+                My core tools include SQL, MySQL, Power BI and Microsoft
+                Excel. I am continuously developing my analytical skills
+                through practical projects and real-world datasets.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-label">
+            What I Do
+        </div>
+
+        <h2 class="section-title">
+            Skills & Tools
+        </h2>
+
+        <div class="skills-grid">
+
+            <div class="skill">SQL</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">Power BI</div>
+            <div class="skill">Microsoft Excel</div>
+            <div class="skill">Data Analysis</div>
+            <div class="skill">Data Cleaning</div>
+            <div class="skill">Data Visualization</div>
+            <div class="skill">Business Intelligence</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-label">
+            My Work
+        </div>
+
+        <h2 class="section-title">
+            Featured Projects
+        </h2>
+
+        <div class="projects">
+
+
+            <!-- BANK LOAN PROJECT -->
+            <div class="project-card">
+
+                <img src="image/Bank_Personal_Loan_Dashboard.png"
+                     alt="Bank Personal Loan Analysis Dashboard"
+                     class="project-image">
+
+                <div class="project-content">
+
+                    <h3>
+                        Bank Personal Loan Analysis
+                    </h3>
+
+                    <p>
+                        Analyzed customer loan data to identify patterns
+                        in loan acceptance, customer demographics,
+                        financial behaviour and key factors influencing
+                        loan decisions.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Excel</span>
+                    </div>
+
+                    <a href="https://github.com/JenniferFestus27/Bank-Personal-Loan-Analysis"
+                       target="_blank"
+                       class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- B2B PROJECT -->
+            <div class="project-card">
+
+                <img src="image/b2b-lead-dashboard.png"
+                     alt="B2B Lead Intelligence and Account Analytics Dashboard"
+                     class="project-image">
+
+                <div class="project-content">
+
+                    <h3>
+                        B2B Lead Analytics Dashboard
+                    </h3>
+
+                    <p>
+                        Built an interactive Power BI dashboard to analyze
+                        B2B accounts, industries, funding, revenue,
+                        technologies and geographic distribution.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Excel</span>
+                    </div>
+
+                    <a href="https://github.com/JenniferFestus27/b2b-lead-analytics-dashboard"
+                       target="_blank"
+                       class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-label">
+            Contact
+        </div>
+
+        <h2 class="section-title">
+            Let's Connect
+        </h2>
+
+        <div class="contact-card">
+
+            <p>
+                I'm open to Data Analyst opportunities, collaborations
+                and projects where I can use data to solve business
+                problems and create meaningful insights.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="https://github.com/JenniferFestus27"
+                   target="_blank">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/"
+                   target="_blank">
+                    LinkedIn
+                </a>
+
+                <a href="mailto:your-email@example.com">
+                    Email
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
 
         <p>
-            Analyzed customer and banking data to understand personal
-            loan acceptance, customer demographics and financial behavior.
+            © 2026 Jennifer Festus | Data Analyst
         </p>
 
-        <p>
-            <strong>Tools:</strong> SQL, MySQL, Power BI
-        </p>
-
-        <p>
-            The project includes an interactive Power BI dashboard showing
-            loan acceptance, income groups, age groups, education levels
-            and banking behavior.
-        </p>
-
-        <a href="https://github.com/JenniferFestus27/Bank-Personal-Loan-Analysis">
-            View Project on GitHub
-        </a>
-
-    </div>
-    <div class="project">
-        
-    <img src="image/b2b-lead-dashboard.png"
-     alt="B2B Lead Intelligence and Account Analytics Dashboard"
-     style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 20px;">
-     <h3>B2B lead Intelligence and Account Analysis</h3>
-        
-     <p>
-        An end-to-end data analytics project extracting B2B account data from Apollo.io, processing 
-        and cleaning attributes with Python, staging structured tables in MySQL Workbench, and 
-        visualizing pipeline metrics in Power BI.
-
-     </p>
-
-     <p> 
-        <strong>Tools:</strong> Excel | SQL| Power BI|
-     </p>
-
-     <a href=https://github.com/JenniferFestus27/b2b-lead-analytics-dashboard>
-        View Project on Github
-     </a>
-        
-</div>
-    
-</section>
-
-<section>
-    <h2>Contact</h2>
-
-    <p>
-        I am open to opportunities in Data Analysis and related roles.
-    </p>
-
-    <p>
-        GitHub:
-        <a href="https://github.com/JenniferFestus27">
-            github.com/JenniferFestus27
-        </a>
-    </p>
-</section>
-
-<footer>
-    <p>
-        © 2026 Jennifer Festus | Data Analyst Portfolio
-    </p>
-</footer>
+    </footer>
 
 </body>
 </html>
